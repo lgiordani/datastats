@@ -85,3 +85,10 @@ def test__avg_age():
     ds = DataStats()
 
     assert ds._avg_age(test_data) == 62
+
+
+def test__avg_salary():
+
+    ds = DataStats()
+
+    assert ds._avg_salary(test_data) == 55165
