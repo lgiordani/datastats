@@ -99,3 +99,29 @@ def test__avg_yearly_increase():
     ds = DataStats()
 
     assert ds._avg_yearly_increase(test_data, 20, 20000) == 837
+
+
+def test__max_salary():
+
+    ds = DataStats()
+
+    assert ds._max_salary(test_data) == [{
+        "id": 3,
+        "name": "Garth",
+        "surname": "Fields",
+        "age": 70,
+        "salary": "£70472"
+    }]
+
+
+def test__min_salary():
+
+    ds = DataStats()
+
+    assert ds._min_salary(test_data) == [{
+        "id": 1,
+        "name": "Laith",
+        "surname": "Simmons",
+        "age": 68,
+        "salary": "£27888"
+    }]
