@@ -4,7 +4,7 @@ import json
 
 class DataStats:
 
-    def stats(self, data, iage, isalary):
+    def _stats(self, data, iage, isalary):
         # iage and isalary are the starting age and salary used to
         # compute the average yearly increase of salary.
 
@@ -28,11 +28,16 @@ class DataStats:
         min_salary = [e for e in data if e['salary'] ==
                       '£{}'.format(str(min(salaries)))]
 
-        return json.dumps({
+        return {
             'avg_age': math.floor(sum([e['age'] for e in data])/len(data)),
             'avg_salary': math.floor(sum(
                 [int(e['salary'][1:]) for e in data])/len(data)),
             'avg_yearly_increase': yearly_avg_increase,
             'max_salary': max_salary,
             'min_salary': min_salary
-        })
+        }
+
+    def stats(self, data, iage, isalary):
+        return json.dumps(
+            self._stats(data, iage, isalary)
+        )
