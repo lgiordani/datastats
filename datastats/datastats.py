@@ -4,6 +4,9 @@ import json
 
 class DataStats:
 
+    def _avg_age(self, data):
+        return math.floor(sum([e['age'] for e in data])/len(data))
+
     def _stats(self, data, iage, isalary):
         # iage and isalary are the starting age and salary used to
         # compute the average yearly increase of salary.
@@ -29,7 +32,7 @@ class DataStats:
                       '£{}'.format(str(min(salaries)))]
 
         return {
-            'avg_age': math.floor(sum([e['age'] for e in data])/len(data)),
+            'avg_age': self._avg_age(data),
             'avg_salary': math.floor(sum(
                 [int(e['salary'][1:]) for e in data])/len(data)),
             'avg_yearly_increase': yearly_avg_increase,

@@ -78,3 +78,10 @@ def test__stats():
             "salary": "£27888"
         }]
     }
+
+
+def test__avg_age():
+
+    ds = DataStats()
+
+    assert ds._avg_age(test_data) == 62
