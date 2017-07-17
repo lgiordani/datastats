@@ -125,3 +125,17 @@ def test__min_salary():
         "age": 68,
         "salary": "£27888"
     }]
+
+
+def test_salaries():
+
+    ds = DataStats()
+
+    assert ds._salaries(test_data) == [27888, 67137, 70472]
+
+
+def test_ages():
+
+    ds = DataStats()
+
+    assert ds._ages(test_data) == [68, 49, 70]
