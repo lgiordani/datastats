@@ -26,11 +26,14 @@ class NewDataStats:
     def _max_salary(self):
         return self._select_salary(max)
 
+    def _floor_avg(self, sum_of_numbers):
+        return math.floor(sum_of_numbers / len(self.data))
+
     def _avg_salary(self):
-        return math.floor(sum(self._salaries)/len(self.data))
+        return self._floor_avg(sum(self._salaries))
 
     def _avg_age(self):
-        return math.floor(sum(self._ages)/len(self.data))
+        return self._floor_avg(sum(self._ages))
 
     def _avg_yearly_increase(self, iage, isalary):
         # iage and isalary are the starting age and salary used to
